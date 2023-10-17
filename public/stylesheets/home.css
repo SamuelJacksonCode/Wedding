@@ -1,0 +1,30 @@
+.c-item {
+height: 55rem;
+margin-top: 0;
+background-color: black;
+background-size: contain;
+}
+
+.c-img {
+
+    width: 225em;
+background-size:cover;
+object-fit:cover;
+
+}
+
+.photo1 {
+    height: 175%;
+    max-height: 1800px;
+
+}
+
+.photo2 {
+height: 150em;
+}
+
+.photo3 {
+height: 250%;
+}
+
+

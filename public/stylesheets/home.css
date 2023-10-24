@@ -27,4 +27,41 @@ height: 150em;
 height: 250%;
 }
 
+.hidden {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
 
+@media(prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0);
+}
+
+
+.trigger {
+    height: 100vh;
+}
+
+#fix {
+    background-size: cover;
+    height: 50vh;
+    width: 50vh;
+    margin-left: 37%;
+    margin-bottom: 10%;
+}
+
+.text1 {
+    font-size: 25px;
+    margin: 10%;
+    text-align: center;
+}

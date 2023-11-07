@@ -4,8 +4,6 @@ const app = express();
 const ejsMate = require('ejs-mate')
 const engine = require('ejs-mate');
 const flash = require('connect-flash');
-const appTwo = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 const path = require('path');
 const passport = require('passport');
@@ -15,21 +13,10 @@ const session = require('express-session')
 
 const userRoutes = require('./routes/users');
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'Views'))
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAxtEcEyqaWHkSnqRXXEKN6fsndYtfsNqM",
-    authDomain: "wedding-eeddd.firebaseapp.com",
-    projectId: "wedding-eeddd",
-    storageBucket: "wedding-eeddd.appspot.com",
-    messagingSenderId: "337869343551",
-    appId: "1:337869343551:web:d96d6c85fb078ae9d5a18a",
-    measurementId: "G-8G7S3GVZ1T"
-  };
 
 mongoose.connect('mongodb://127.0.0.1:27017/');
 

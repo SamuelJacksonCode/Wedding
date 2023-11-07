@@ -14,7 +14,7 @@ const session = require('express-session')
 
 const userRoutes = require('./routes/users');
 
-app.set('view engine' , 'ejs');
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'Views'))
 
 mongoose.connect('mongodb://127.0.0.1:27017/');
@@ -24,14 +24,14 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
 const sessionConfig = {
-secret: 'thisismysecret!',
-resave: false,
-saveUninitialized: true,
-cookie: {
-    httpOnly: true,
-    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-    maxage: 1000 * 60 * 60 * 24 * 7
-}
+    secret: 'thisismysecret!',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        maxage: 1000 * 60 * 60 * 24 * 7
+    }
 }
 
 
@@ -45,7 +45,7 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/', userRoutes);
@@ -61,7 +61,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
-   
+
     next();
 })
 
@@ -77,6 +77,11 @@ app.get('/When', (req, res) => {
 app.get('/registry', (req, res) => {
     res.render('registry');
 })
+
+app.get('/RSVP', (req, res) => {
+    res.render('RSVP');
+})
+
 app.listen(3000, () => {
     console.log("serving on port 3000")
 })

@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate')%>
+
+<br>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+<div class="card" style="width: 40rem;">
+    <div class="card-body mx-auto">
+      <h5 class="card-title">Register Your Account!</h5>
+
+      
+    </div>
+  
+<form action="/register" method="post" class="validated-form" novalidate>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="firstName" name="firstName" required>
+        <label class="form-label" for="firstName">First Name</label>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="lastName" name="lastName" required>
+        <label class="form-label" for="lastName">Last Name</label>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" name="email" required>
+        <label class="form-label" for="email">Email address</label>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="username" name="username" required>
+        <label class="form-label" for="username">Username</label>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="form-floating text-center">
+        <input type="password" class="form-control" id="password" name="password" required>
+        <label class="form-label" for="password">Password</label>
+        <div class="valid-feedback">Looks good!</div>
+        <br>
+        <button class="btn btn-primary">Register</button>
+      </div>
+      <br>
+      
+    </div>
+  </div>
+</form>
+

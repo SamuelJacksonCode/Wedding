@@ -18,7 +18,7 @@ const userRoutes = require('./routes/users');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'Views'))
 
-mongoose.connect('mongodb://127.0.0.1:27017/');
+mongoose.connect('mongodb://127.0.0.1:27017/wedding');
 
 app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');

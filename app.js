@@ -9,8 +9,10 @@ const path = require('path');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
+const Guest = require('./models/guests')
 const session = require('express-session')
 
+const guestRoutes = require('./routes/guests')
 const userRoutes = require('./routes/users');
 
 
@@ -48,7 +50,7 @@ app.use((req, res, next) => {
 
 app.use(express.urlencoded({ extended: true }));
 
-
+app.use('/RSVP', guestRoutes)
 app.use('/', userRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')))

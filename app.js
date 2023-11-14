@@ -5,19 +5,22 @@ const ejsMate = require('ejs-mate')
 const engine = require('ejs-mate');
 const flash = require('connect-flash');
 
-
 const path = require('path');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
+const Guest = require('./models/guests')
 const session = require('express-session')
 
+const guestRoutes = require('./routes/guests')
 const userRoutes = require('./routes/users');
+
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'Views'))
 
-mongoose.connect('mongodb://127.0.0.1:27017/');
+mongoose.connect('mongodb://127.0.0.1:27017/wedding');
 
 app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
@@ -47,7 +50,7 @@ app.use((req, res, next) => {
 
 app.use(express.urlencoded({ extended: true }));
 
-
+app.use('/RSVP', guestRoutes)
 app.use('/', userRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -80,8 +83,21 @@ app.get('/registry', (req, res) => {
 
 app.get('/RSVP', (req, res) => {
     res.render('RSVP');
+
+})
+
+app.post('/RSVP', async (req, res, next) => {
+    const guests = await Guest.find({})
+    console.log(guests);
+    res.render('RSVP');
+    next();
 })
 
 app.listen(3000, () => {
     console.log("serving on port 3000")
 })
+
+
+
+
+
